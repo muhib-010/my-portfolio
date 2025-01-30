@@ -1,0 +1,556 @@
+@keyframes smoothSlide {
+    to {
+        background-position: 200%;
+    }
+}
+@keyframes textBlinkGlow {
+    0% {
+        text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+        text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
+    }
+}
+@keyframes fadeInZoom {
+    from {
+        opacity: 0.4;
+        scale: 0.7;
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+        filter: blur(0px);
+    }
+}
+
+@keyframes scrollFadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+        /* Starts at normal scale */
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(.8);
+        /* Shrinks and fades out */
+    }
+}
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+        /* Start off-screen */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        /* End in the original position */
+    }
+}
+@keyframes gradientBorder {
+    to {
+        background-position: 200% 200%;
+    }
+}
+@keyframes fadeOutToLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    -webkit-user-drag: none;
+    /* Prevent dragging */
+}
+.show{
+    display: block;
+    opacity: 100%;
+    scale: 1;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    margin: 0px;
+    padding-top: 40px;
+    font-weight: bold;
+}
+.home-sec{
+    padding-top: 40px;
+    margin-bottom: 120px;
+}
+header {
+    text-align: center;
+    border: 1.5px;
+    /* Border styling can be defined more explicitly */
+    background-color: transparent;
+    color: rgb(153, 125, 253);
+}
+
+.heading{
+    margin: 15px 0px;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+}
+.text-glow{
+    animation: textBlinkGlow 2s linear infinite;
+}
+
+.paragraph{
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    width: max(350px, 65%);
+    font-size: 20px;
+    line-height: 35px;
+    font-family: 'montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 550;
+}
+
+nav {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0px;
+    right: 0px;
+    z-index: 20;
+    /*background: linear-gradient(to right, #535353, #333, #333, #333, #333, #333, #333, #535353);*/
+    background-color: rgba(10, 10, 10, 0.803);
+    box-shadow: 0px 0px 10px rgb(63, 63, 63);
+    backdrop-filter: blur(2.5px);
+}
+.nav-elem,
+.nav-link {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: all 200ms;
+    font-family: "Reem Kufi" , Helvetica, sans-serif;
+}
+.nav-menu-btn {
+    display: none;
+    margin-right: 7px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: url('your-image.jpg') no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+}
+.nav-elem:hover,
+.nav-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-shadow: 0px 0px 10px rgba(114, 170, 255, 0.651);
+    scale: 1.1;
+}
+
+.nav-elem-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+    list-style: none;
+    padding: 0 0 5px;
+    transition: height 0.3s;
+}
+
+
+.home-div {
+    z-index: -2;
+    background-color: #121212;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 200vh;
+    /* For scrolling effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.about-sec{
+    z-index: 1;
+}
+
+.about-head {
+    margin: 10px;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+}
+
+.about-intro-para {
+    color: white;
+    width: 35%;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: end;
+    font-family: 'montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 550;
+}
+
+.pfp {
+    width: max(30%, 250px);
+    height: auto;
+    margin: 3%;
+    border-radius: 50%;
+    box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.863);
+    object-fit: contain;
+}
+
+.role-text {
+    color: rgb(153, 125, 253);
+    font-size: 18px;
+}
+
+.about-intro-container {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    animation: fadeInZoom;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.about-education-container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    /* Center the paragraph vertically */
+    align-items: center;
+    /* Center the paragraph horizontally */
+}
+
+#About img {
+    animation: fadeInZoom 1.5s ease-in-out;
+}
+
+.gradient-name {
+    opacity: 0;
+    /* Adjust to initial position in the home-div */
+    height: 36px;
+    font-family: "rajdhani", "montserrat", "Reem Kufi";
+    font-size: 36px;
+    font-weight: 500;
+    background: linear-gradient(to right, #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: smoothSlide 5s linear infinite;
+    cursor: default;
+    z-index: 10;
+    transition: opacity 0.3s;
+}
+
+.gradient-name-decoy {
+    font-weight: 500;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "rajdhani", "montserrat", "Reem Kufi";
+    font-size: clamp(40px, 5vw, 70px);
+    /* Minimum 40px, 5% of viewport width, maximum 70px */
+    font-weight: 500;
+    background: linear-gradient(to right, #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: smoothSlide 5s linear infinite;
+    cursor: default;
+    z-index: -1;
+    /* Positioned under fade effect */
+    transition: transform 0.13s, opacity 0.3s;
+}
+
+.fade-effect {
+    background-color: #121212;
+    /*background-color: #121212;*/
+    position: absolute;
+    top: 0;
+    right: -50px;
+    overflow: hidden;
+    width: 35%;
+    height: 100%;
+    z-index: 2;
+    /* Above gradient-name */
+    pointer-events: none;
+    /* Allows interaction with elements beneath */
+    filter: blur(10px);
+}
+
+/* Basic styling for the list */
+.fade-in-list{
+    padding: 0;
+}
+
+.fade-in-list li {
+    opacity: 0;
+    /* Start as hidden */
+    transform: translateX(-50px);
+    /* Start off-screen */
+    animation: fadeInLeft 0.8s ease forwards;
+    /* Add keyframe animation */
+    animation-timeline: view();
+    /* Placeholder for an expected feature */
+    animation-range: entry 0% cover 30%;
+    /* Placeholder for an expected feature */
+}
+
+/* Stagger the animations using delays */
+.fade-in-list li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.fade-in-list li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.fade-in-list li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.fade-in-list li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+footer{
+    padding: 100px 0px;
+}
+
+
+#Projects {
+    background-color: #121212;
+    /* Dark background */
+    padding: 50px 20px;
+    /* Spacing around the section */
+}
+
+.about-head {
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    margin-bottom: 40px;
+    /* Spacing below heading */
+}
+
+/* Grid for project cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 20px;
+    /* Space between cards */
+}
+
+/* Styles for individual project cards */
+.project-card {
+    border-radius: 15px;
+    /* Match border radius */
+    background: linear-gradient(135deg, #3b3b3b, #000000);
+    /* Gradient colors */
+    background-size: 200%;
+    border-radius: 15px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* To hide the overflow of the pseudo-element */
+    /* Shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Smooth transitions */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 16px 22px rgba(255, 255, 255, 0.4);
+    /* Enhanced shadow on hover */
+}
+
+/* Animated gradient border */
+.project-card::before {
+    content: '';
+    
+}
+
+/* Project card grid styles */
+.project-card-grid {
+    position: relative;
+    z-index: 1;
+    /* Bring content above the border */
+    padding: 20px;
+    /* Spacing inside the card */
+}
+
+/* Project image styles */
+.project-image {
+    width: 100%;
+    /* Full width */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10px;
+    /* Slightly round image corners */
+    transition: transform 0.3s;
+    /* Smooth image transition */
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+    /* Scale image on hover */
+}
+
+/* Project title and description styles */
+.project-title {
+    color: #fff;
+    /* White text */
+    font-size: 1.5em;
+    /* Font size */
+    margin: 10px 0;
+    /* Spacing */
+    text-align: center;
+    /* Center align */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    /* Glow effect */
+}
+
+.project-description {
+    color: #b0b0b0;
+    /* Light gray for description */
+    text-align: center;
+    /* Center align */
+    font-size: 0.9em;
+    /* Font size */
+    margin-top: 10px;
+    /* Spacing */
+}
+
+
+@media (max-width: 800px) {
+    .pfp{
+        width: 50%;
+    }
+    .about-intro-container {
+        flex-direction: column-reverse;
+    }
+
+    .about-intro-para {
+        text-align: start;
+        width: 90%;
+    }
+}
+@media (max-width: 700px) {
+    .paragraph{
+        font-size: 16px;
+    }
+    .about-intro-para{
+        font-size: 16px;
+    }
+    .pfp {
+        width: 300px;
+    }
+
+    .nav-elem-container {
+        overflow: hidden;
+        /* Ensures content doesn't spill out */
+        max-height: 40px;
+        /* Collapsed by default */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: max-height 0.5s ease-in-out;
+        /* Smooth transition */
+    }
+
+    .nav-elem-container.nav-elem-container-extend {
+        max-height: 300px;
+
+        /* Expanded height to show elements */
+    }
+
+    /* Nav items hidden by default */
+    .nav-elem {
+        opacity: 0;
+        /* Fully transparent */
+        visibility: hidden;
+        /* Hidden from view */
+        transition: opacity 0.4s ease, visibility 0.4s ease, text-shadow 200ms ease-in-out, scale 200ms ease-in-out, margin 0.4s;
+    }
+
+    /* Nav items become visible when the menu is extended */
+    .nav-elem.show {
+        margin-bottom: 20px;
+        opacity: 1;
+        /* Fully visible */
+        visibility: visible;
+        /* Make visible */
+    }
+    .nav-menu-btn {
+        height: 45px;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        display: initial;
+        /* Ensure button is visible */
+        background-image: url(./assets/menu_icon.svg?v=1);
+        background-size: cover;
+        /* Ensure the SVG scales properly */
+        background-repeat: no-repeat;
+        /* Prevent tiling of the background image */
+        background-position: center;
+        /* Center the SVG within the button */
+        cursor: pointer;
+        transition: all 250ms;
+    }
+    .nav-menu-btn:active{
+        scale: 0.8;
+    }
+    .gradient-name{
+        transition: all 0.3s;
+    }
+    /* When gradient name needs to be hidden */
+    .gradient-name.hide {
+        height: 0px;
+        font-size: 0px;
+        transition: all 0.3s ease;
+    }
+}

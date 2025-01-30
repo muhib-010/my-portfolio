@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rajdhani:wght@300;400;500;600;700&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="no-select">
+        <div class="nav-elem-container">
+            <li class="nav-elem"><a class="nav-link" href="#Home">Home</a></li>
+            <li class="nav-elem"><a class="nav-link" href="#About">About</a></li>
+            <h1 class="name gradient-name">Muhib Ariyan</h1>
+            <li class="nav-elem"><a class="nav-link" href="#Projects">Projects</a></li>
+            <li class="nav-elem"><a class="nav-link" href="#Contact">Contact</a></li>
+            <button class="nav-menu-btn" onclick="navExtend()"></button>
+        </div>
+    </nav>
+<section id="Home" class="home-sec">
+    <div class="home-div">
+        <div class="gradient-name-decoy">Muhib Ariyan</div>
+        <div class="fade-effect"></div>
+    </div>
+</section>
+
+    <section id="About" class="about-sec">
+        <h2 class="about-head">About Me</h2>
+        <div class="about-intro-container">
+            <p class="about-intro-para">
+                Hello! I'm Muhib Ariyan, a passionate <span class="role-text">Front End Web Developer</span> who loves creating beautiful and functional websites. 
+                My skills include HTML, CSS, and JavaScript, and I'm excited to keep learning and growing in the field of web development.
+            </p>
+            <img src="./assets/gigachad.jpg" alt="Profile Picture" class="pfp" draggable="false">
+        </div>
+        <div class="about-education-container">
+            <h2 class="heading">Education:</h2>
+            <p class="paragraph">
+                I am a self taught programmer and I specialize in creating interactive and responsive web pages
+                using technologies like HTML, CSS, JavaScript, React and some other tools and libraries.
+            </p>
+            <h3 class="text-glow heading">How I Learned My Skills:</h3>
+            <ul class="fade-in-list">
+                <li class="paragraph">Learned HTML, CSS, and JavaScript through online tutorials and courses.</li>
+                <li class="paragraph">Developed several projects, including this portfolio website showcasing my skills and
+                    projects.</li>
+            </ul>
+            
+            <h3 class="text-glow heading">Soft Skills:</h3>
+            <ul class="fade-in-list">
+                <li class="paragraph">Strong problem-solving abilities, effective communication, and a passion for continuous
+                    learning.</li>
+                <li class="paragraph">Strong passion for making a website beautiful.</li>
+            </ul>
+        </div>
+        
+    </section>
+    <section id="Projects" class="projects-sec">
+        <h2 class="about-head">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-card-grid">
+                    <img class="project-image" src="https://via.placeholder.com/250" alt="Project 1">
+                    <div class="project-info">
+                        <p class="project-title">Portfolio Website</p>
+                        <p class="project-description">A responsive portfolio website showcasing my skills and projects,
+                            built with HTML, CSS, and JavaScript.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-grid">
+                    <img class="project-image" src="https://via.placeholder.com/250" alt="Project 2">
+                    <div class="project-info">
+                        <p class="project-title">E-Commerce Platform</p>
+                        <p class="project-description">An online shopping platform with a user-friendly interface, featuring
+                            product listings, cart functionality, and secure checkout.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-grid">
+                    <img class="project-image" src="https://via.placeholder.com/250" alt="Project 3">
+                    <div class="project-info">
+                        <p class="project-title">Blog Website</p>
+                        <p class="project-description">A blog platform where users can create, edit, and publish articles,
+                            complete with commenting features and social sharing options.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-card-grid">
+                    <img class="project-image" src="https://via.placeholder.com/250" alt="Project 4">
+                    <div class="project-info">
+                        <p class="project-title">Weather App</p>
+                        <p class="project-description">A weather forecasting app that provides real-time weather updates and
+                            forecasts based on the user's location.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
