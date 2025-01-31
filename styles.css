@@ -250,7 +250,8 @@ nav {
     justify-content: space-evenly;
     animation: fadeInZoom;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry -10% cover 40%;
+    animation-fill-mode: forwards; /* Keeps the final state of animation */
 }
 
 .about-education-container{
@@ -336,7 +337,7 @@ nav {
     /* Add keyframe animation */
     animation-timeline: view();
     /* Placeholder for an expected feature */
-    animation-range: entry 0% cover 30%;
+    animation-range: entry 0% cover 30vh;
     /* Placeholder for an expected feature */
 }
 
@@ -542,6 +543,7 @@ footer{
         background-position: center;
         /* Center the SVG within the button */
         cursor: pointer;
+        
         transition: all 250ms;
     }
     .nav-menu-btn:active{
