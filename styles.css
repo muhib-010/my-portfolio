@@ -288,7 +288,7 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: "rajdhani", "montserrat", "Reem Kufi";
-    font-size: clamp(30px, 5vw, 70px);
+    font-size: clamp(40px, 5vw, 70px);
     /* Minimum 40px, 5% of viewport width, maximum 70px */
     font-weight: 500;
     background: linear-gradient(to right, #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
