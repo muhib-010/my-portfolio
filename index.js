@@ -1,3 +1,10 @@
+import { projects } from "./projectsData.js";
+const projectsGrid = document.querySelector(".projects-grid")
+const hideProjectsDiv = document.querySelector(".hide-projects-div")
+const showProjectsBtn = document.querySelector(".show-projects-button")
+const projectData = projects
+const projectRenderCount = 4
+let arrIndex = 0
 document.addEventListener("scroll", () => {
     const gradientNameDecoy = document.querySelector(".gradient-name-decoy");
     const gradientName = document.querySelector(".gradient-name");
@@ -30,23 +37,60 @@ document.addEventListener("scroll", () => {
     }
 });
 
-
-
-
-
-
-
-function navExtend() {
+window.navExtend = function () {
     console.log("pressed");
     
     const navContainer = document.querySelector('.nav-elem-container'); // Get the navbar container
     const navLinks = document.querySelectorAll(".nav-elem"); // Get all nav elements
     const gradientName = document.querySelector('.gradient-name');
+    
     // Toggle the 'show' class on each nav element
     navLinks.forEach(link => {
         link.classList.toggle("show");
     });
+
     // Toggle the 'nav-elem-container-extend' class on the container
     navContainer.classList.toggle('nav-elem-container-extend');
     gradientName.classList.toggle('hide');
+};
+
+let currentIndex = 0; // Tracks the starting point for the next render
+let projectShown = false
+
+window.renderProjects = function (projects = projectData) {
+    let startIndex = currentIndex;
+    let endIndex = startIndex + projectRenderCount;
+    let projectsToRender = projects.slice(startIndex, endIndex);
+    projectShown = true
+    hideProjectsDiv.innerHTML = `<button class="show-projects-button noselect" onclick="hideProjects()">
+                                    Hide Projects
+                                </button>`
+    showProjectsBtn.innerHTML = "Show more"
+    projectsToRender.forEach(project => {
+        projectsGrid.innerHTML += `
+            <div class="project-card">
+                <div class="project-card-grid">
+                    <img class="project-image" src="${project.imageSrc}" alt="${project.altText}">
+                    <div class="project-info">
+                        <p class="project-title">${project.title}</p>
+                        <p class="project-description">${project.description}</p>
+                    </div>
+                </div>
+            </div>`;
+    });
+
+    currentIndex += projectRenderCount; // Move to the next batch
+
+    // Optional: Stop when all projects are rendered
+    if (currentIndex >= projects.length) {
+        console.log("All projects rendered!");
+    }
+};
+
+window.hideProjects = function() {
+    projectShown = false
+    projectsGrid.innerHTML = ``
+    hideProjectsDiv.innerHTML = ``
+    currentIndex = 0
+    showProjectsBtn.innerHTML = "Show projects"
 }
