@@ -1,19 +1,23 @@
 @keyframes smoothSlide {
     to {
-        background-position: 200%;
+        background-position: 100%;
     }
 }
+
 @keyframes textBlinkGlow {
     0% {
         text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
     }
+
     50% {
         text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
     }
+
     100% {
         text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.5);
     }
 }
+
 @keyframes fadeInZoom {
     from {
         opacity: 0.4;
@@ -31,32 +35,35 @@
 @keyframes fadeInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translatex(-50px);
         /* Start off-screen */
     }
 
     100% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translatex(0);
         /* End in the original position */
     }
 }
+
 @keyframes gradientBorder {
     to {
         background-position: 200% 200%;
     }
 }
+
 @keyframes fadeOutToLeft {
     0% {
-        transform: translateX(0);
+        transform: translatex(0);
         opacity: 1;
     }
 
     100% {
-        transform: translateX(-100%);
+        transform: translatex(-100%);
         opacity: 0;
     }
 }
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -67,9 +74,10 @@
     }
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html,
@@ -77,13 +85,16 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow-x: visible;
     /* Ensures full width without overflow */
 }
-html{
+
+html {
     scroll-behavior: smooth;
     display: flex;
     justify-content: center;
 }
+
 .no-select {
     user-select: none;
     -webkit-user-select: none;
@@ -95,7 +106,8 @@ html{
     -webkit-user-drag: none;
     /* Prevent dragging */
 }
-.show{
+
+.show {
     display: block;
     opacity: 100%;
     scale: 1;
@@ -107,11 +119,13 @@ body {
     padding-top: 40px;
     font-weight: bold;
 }
-.home-sec{
-    overflow-x: hidden;
+
+.home-sec {
+    overflow-x: visible;
     padding-top: 40px;
     margin-bottom: 120px;
 }
+
 header {
     text-align: center;
     border: 1.5px;
@@ -120,7 +134,7 @@ header {
     color: rgb(153, 125, 253);
 }
 
-.heading{
+.heading {
     margin: 36px 0px;
     font-size: clamp(20px, 7vw, 36px);
     font-weight: 700;
@@ -128,11 +142,12 @@ header {
     color: white;
     text-align: center;
 }
-.text-glow{
+
+.text-glow {
     animation: textBlinkGlow 2s linear infinite;
 }
 
-.paragraph{
+.paragraph {
     margin-left: auto;
     margin-right: auto;
     color: white;
@@ -142,30 +157,33 @@ header {
     font-family: 'montserrat', Arial, Helvetica, sans-serif;
     font-weight: 550;
 }
+
 .education-para {
     max-width: 60ch;
 }
+
 nav {
     padding: 0;
     margin: 0;
     position: fixed;
     top: 0;
-    left: 0px;
-    right: 0px;
+    width: 100%;
     z-index: 20;
     /*background: linear-gradient(to right, #535353, #333, #333, #333, #333, #333, #333, #535353);*/
     background-color: rgba(10, 10, 10, 0.803);
     box-shadow: 0px 0px 10px rgb(63, 63, 63);
     backdrop-filter: blur(2.5px);
 }
+
 .nav-elem,
 .nav-link {
     color: white;
     font-size: 20px;
     text-decoration: none;
     transition: all 200ms;
-    font-family: "Reem Kufi" , Helvetica, sans-serif;
+    font-family: "Reem Kufi", Helvetica, sans-serif;
 }
+
 .nav-menu-btn {
     user-select: none;
     display: none;
@@ -173,10 +191,11 @@ nav {
     width: 45px;
     height: 45px;
     border: none;
-    background: url('your-image.jpg') no-repeat center center;
+    background: url("your-image.jpg") no-repeat center center;
     background-size: cover;
     cursor: pointer;
 }
+
 .nav-elem:hover,
 .nav-link:hover {
     text-decoration: underline;
@@ -194,9 +213,8 @@ nav {
     transition: height 0.3s;
 }
 
-
 .home-div {
-    overflow-x: hidden;
+    overflow-x: visible;
     width: 100%;
     z-index: -2;
     background-color: #121212;
@@ -209,8 +227,12 @@ nav {
     align-items: center;
     position: relative;
 }
-
-.about-sec{
+.home-div,
+.about-intro-container,
+.gradient-name-decoy {
+    overflow-x: visible;
+}
+.about-sec {
     z-index: 1;
 }
 
@@ -267,10 +289,11 @@ nav {
     animation: fadeInZoom;
     animation-timeline: view();
     animation-range: entry -10% cover 40%;
-    animation-fill-mode: forwards; /* Keeps the final state of animation */
+    animation-fill-mode: forwards;
+    /* Keeps the final state of animation */
 }
 
-.about-education-container{
+.about-education-container {
     margin-top: 50px;
     display: flex;
     flex-direction: column;
@@ -279,7 +302,7 @@ nav {
     /* Center the paragraph horizontally */
 }
 
-#About{
+#About {
     padding-top: 50px;
 }
 
@@ -307,8 +330,8 @@ nav {
 
 .gradient-name-decoy {
     clip-path: inset(0 0 0 0);
-        /* ✅ Clips everything outside */
-        white-space:nowrap;
+    /* ✅ Clips everything outside */
+    white-space: nowrap;
     font-weight: 500;
     position: fixed;
     top: 50vh;
@@ -326,7 +349,6 @@ nav {
     animation: smoothSlide 5s linear infinite;
     cursor: default;
     z-index: -1;
-    
     /* Adds "..." when text overflows */
     /* Positioned under fade effect */
     transition: transform 0.13s, opacity 0.3s;
@@ -334,7 +356,7 @@ nav {
 
 .fade-effect {
     background-color: #121212;
-    box-shadow: -5px 0px 10px #121212,-10px 0px 20px #121212;
+    box-shadow: -5px 0px 10px #121212, -10px 0px 20px #121212;
     /*background-color: #121212;*/
     position: absolute;
     top: 0;
@@ -347,14 +369,14 @@ nav {
 }
 
 /* Basic styling for the list */
-.fade-in-list{
+.fade-in-list {
     padding: 0;
 }
 
 .fade-in-list li {
     opacity: 0;
-    /* Start as hidden */
-    transform: translateX(-50px);
+    /* Start as visible */
+    transform: translatex(-50px);
     /* Start off-screen */
     animation: fadeInLeft 0.8s ease forwards;
     /* Add keyframe animation */
@@ -382,10 +404,9 @@ nav {
     animation-delay: 0.8s;
 }
 
-footer{
+footer {
     padding: 100px 0px;
 }
-
 
 #Projects {
     display: flex;
@@ -414,9 +435,11 @@ footer{
     /* Space between cards */
     max-width: 100%;
 }
+
 .projects-grid>* {
     max-width: 100%;
 }
+
 /* Styles for individual project cards */
 .project-card {
     width: 90%;
@@ -430,11 +453,10 @@ footer{
     /* Shadow effect */
     transition: transform 0.3s, box-shadow 0.3s;
     /* Smooth transitions */
-    
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
+    transform: translatey(-5px);
     /* Lift effect on hover */
     box-shadow: 0 16px 22px rgba(255, 255, 255, 0.4);
     /* Enhanced shadow on hover */
@@ -512,7 +534,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Removed overflow:hidden to allow glow visibility */
+    /* Removed overflow:visible to allow glow visibility */
 }
 
 /* Inner Black Effect */
@@ -531,9 +553,10 @@ footer{
     transition: filter 0.4s, width 0.4s, height 0.4s, transform 0.3s ease-in-out;
 }
 
-.show-projects-button:active{
+.show-projects-button:active {
     scale: 0.9;
 }
+
 /* Outer Gradient Glow */
 .show-projects-button::after {
     content: '';
@@ -542,13 +565,7 @@ footer{
     left: 50%;
     width: 175%;
     height: 175%;
-    overflow: visible;
-    background: radial-gradient(circle,
-            rgba(151, 55, 255, 0.4) 20%,
-            rgba(37, 163, 212, 0.3) 40%,
-            rgba(255, 58, 189, 0.2) 60%,
-            rgba(37, 163, 212, 0.1) 80%,
-            rgba(151, 55, 255, 0) 100%);
+    background: radial-gradient(circle, rgba(151, 55, 255, 0.4) 20%, rgba(37, 163, 212, 0.3) 40%, rgba(255, 58, 189, 0.2) 60%, rgba(37, 163, 212, 0.1) 80%, rgba(151, 55, 255, 0) 100%);
     border-radius: 50%;
     z-index: -2;
     filter: blur(20px);
@@ -558,7 +575,7 @@ footer{
     /* Adjust glow visibility */
 }
 
-.show-projects-button:hover{
+.show-projects-button:hover {
     text-shadow: 0px 0px 3px #d9c1ff;
 }
 
@@ -586,10 +603,14 @@ footer{
     justify-content: center;
     align-items: center;
 }
-#Contact{
+
+#Contact {
     display: flex;
     justify-content: center;
+    width: 100%;
+    overflow-x: visible;
 }
+
 .contact-form {
     width: 60%;
     display: flex;
@@ -597,17 +618,21 @@ footer{
     flex-direction: column;
     gap: 15px;
     max-width: 500px;
-    background: rgba(255, 255, 255, 0.1);
+    background: transparent;
     padding: 20px;
     border-radius: 10px;
+    box-sizing: border-box;
+    overflow-x: visible;
 }
 
 .contact-form label {
+    color: white;
     font-weight: bold;
 }
 
 .contact-form input,
 .contact-form textarea {
+    font-size: 16px;
     resize: none;
     width: 100%;
     padding: 15px 10px;
@@ -619,11 +644,7 @@ footer{
 .contact-form-button {
     color: white;
     border-radius: 25px;
-    background-color: linear-gradient(135deg #9737ff,
-                                        #25a3d4,
-                                        #ff3abd,
-                                        #25a3d4,
-                                        #9737ff);
+    background: linear-gradient(135deg #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
     cursor: pointer;
     width: 90%;
     border: none;
@@ -632,9 +653,10 @@ footer{
 }
 
 @media (max-width: 800px) {
-    .pfp{
+    .pfp {
         width: 50%;
     }
+
     .about-intro-container {
         flex-direction: column-reverse;
     }
@@ -643,24 +665,28 @@ footer{
         text-align: start;
         width: 90%;
     }
-    .fade-effect{
+
+    .fade-effect {
         width: 14vw;
     }
 }
+
 @media (max-width: 700px) {
-    .paragraph{
+    .paragraph {
         font-size: 16px;
     }
-    .about-intro-para{
+
+    .about-intro-para {
         font-size: 16px;
     }
+
     .pfp {
         width: 300px;
         margin-bottom: 40px;
     }
 
     .nav-elem-container {
-        overflow: hidden;
+        overflow: visible;
         /* Ensures content doesn't spill out */
         max-height: 40px;
         /* Collapsed by default */
@@ -674,16 +700,15 @@ footer{
 
     .nav-elem-container.nav-elem-container-extend {
         max-height: 300px;
-
         /* Expanded height to show elements */
     }
 
-    /* Nav items hidden by default */
+    /* Nav items visible by default */
     .nav-elem {
         opacity: 0;
         /* Fully transparent */
-        visibility: hidden;
-        /* Hidden from view */
+        visibility: visible;
+        /* visible from view */
         transition: opacity 0.4s ease, visibility 0.4s ease, text-shadow 200ms ease-in-out, scale 200ms ease-in-out, margin 0.4s;
     }
 
@@ -695,6 +720,7 @@ footer{
         visibility: visible;
         /* Make visible */
     }
+
     .nav-menu-btn {
         height: 45px;
         position: fixed;
@@ -702,7 +728,7 @@ footer{
         top: 0px;
         display: initial;
         /* Ensure button is visible */
-        background-image: url(./assets/menu_icon.svg?v=1);
+        background-image: url("./assets/menu_icon.svg?v=1");
         background-size: cover;
         /* Ensure the SVG scales properly */
         background-repeat: no-repeat;
@@ -710,68 +736,72 @@ footer{
         background-position: center;
         /* Center the SVG within the button */
         cursor: pointer;
-        
         transition: all 250ms;
     }
-    .nav-menu-btn:active{
+
+    .nav-menu-btn:active {
         scale: 0.8;
     }
-    .gradient-name{
+
+    .gradient-name {
         transition: all 0.3s;
     }
-    /* When gradient name needs to be hidden */
+
+    /* When gradient name needs to be visible */
     .gradient-name.hide {
         height: 0px;
         font-size: 0px;
         transition: all 0.3s ease;
     }
-    .contact-form{
+
+    .contact-form {
         width: 90%;
     }
 }
 
 @media (max-width: 400px) {
-    html{
-        width: 100vw;
-    }
-    body {
-        overflow-x: visible;
-        width: 100vw;
-        /* Prevents horizontal scrolling */
+    html {
+        min-width: 100%;
     }
 
-    .container {
-        width: 100%;
-        /* Ensures content scales correctly */
-        padding: 10px;
-        /* Adjust padding for smaller screens */
+    body {
+        overflow-x: visible;
+        min-width: 100%;
+        /* Prevents horizontal scrolling */
     }
 
     .nav-elem-container {
         flex-direction: column;
         /* Stacks navigation items */
     }
-    li{
+
+    li {
         list-style: none;
     }
+
     .fade-effect {
         width: 14vw;
     }
-    .contact-form{
+
+    .contact-form {
         width: 85%;
     }
-    .projects-div{
+
+    .projects-div {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
-    .show-projects-button::after{
+
+    .show-projects-button::after {
         width: 100%;
     }
-    .show-projects-button:hover::after{
+
+    .show-projects-button:hover::after {
         box-shadow: none;
         width: 100%;
         height: 100%;
     }
-    .contact-form{
+
+    .contact-form {
         width: 90%;
     }
-    }
+}
