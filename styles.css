@@ -84,7 +84,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    min-width: 100%;
     overflow-x: visible;
     /* Ensures full width without overflow */
 }
@@ -93,6 +93,7 @@ html {
     scroll-behavior: smooth;
     display: flex;
     justify-content: center;
+    min-width: 100%;
 }
 
 .no-select {
@@ -118,6 +119,7 @@ body {
     background-color: #121212;
     padding-top: 40px;
     font-weight: bold;
+    min-width: 100%;
 }
 
 .home-sec {
@@ -406,6 +408,7 @@ nav {
 
 footer {
     padding: 100px 0px;
+    margin-top: 100px;
 }
 
 #Projects {
@@ -563,7 +566,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 175%;
+    width: 150%;
     height: 175%;
     background: radial-gradient(circle, rgba(151, 55, 255, 0.4) 20%, rgba(37, 163, 212, 0.3) 40%, rgba(255, 58, 189, 0.2) 60%, rgba(37, 163, 212, 0.1) 80%, rgba(151, 55, 255, 0) 100%);
     border-radius: 50%;
@@ -646,7 +649,7 @@ footer {
     border-radius: 25px;
     background: linear-gradient(135deg #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
     cursor: pointer;
-    width: 90%;
+    width: 60%;
     border: none;
     outline: none;
     box-shadow: none;
