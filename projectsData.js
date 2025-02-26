@@ -1,9 +1,9 @@
 export const projects = [
   {
     imageSrc: "./assets/UnderConstruction.jpeg",
-    altText: "Project 1",
-    title: "Blog Website",
-    description: "A blog platform where users can create, edit, and publish articles, complete with commenting features and social sharing options."
+    altText: "Tic Tac Toe Game",
+    title: "Tic Tac Toe",
+    description: "A classic Tic Tac Toe game with a responsive design and interactive gameplay, built using HTML, CSS, and JavaScript."
   },
   // Add more projects following this structure
   {
@@ -16,7 +16,7 @@ export const projects = [
     imageSrc: "./assets/UnderConstruction.jpeg",
     altText: "Project 3",
     title: "To-do list",
-    description: "A simple to-do list made iwth React for managing your day to day tasks"
+    description: "A simple to-do list made with React for managing your day to day tasks"
   },
   {
     imageSrc: "./assets/UnderConstruction.jpeg",

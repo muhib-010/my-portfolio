@@ -1,6 +1,6 @@
 @keyframes smoothSlide {
     to {
-        background-position: 100%;
+        background-position: 200%;
     }
 }
 
@@ -168,13 +168,15 @@ nav {
     padding: 0;
     margin: 0;
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 4px;
+    left: 2%;
+    width: 96%;
     z-index: 20;
+    border-radius: 10px;
     /*background: linear-gradient(to right, #535353, #333, #333, #333, #333, #333, #333, #535353);*/
-    background-color: rgba(10, 10, 10, 0.803);
-    box-shadow: 0px 0px 10px rgb(63, 63, 63);
-    backdrop-filter: blur(2.5px);
+    background-color: #0a0a0a99;
+    box-shadow: 0px 0px 10px #0a0a0a99;
+    backdrop-filter: blur(3.5px) brightness(120%) saturate(2.5);
 }
 
 .nav-elem,
@@ -320,7 +322,7 @@ nav {
     font-size: clamp(30px, 10vw, 40px);
     font-weight: 500;
     background: linear-gradient(to right, #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
-    background-size: 200%;
+    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -344,7 +346,7 @@ nav {
     /* Minimum 40px, 5% of viewport width, maximum 70px */
     font-weight: 500;
     background: linear-gradient(to right, #9737ff, #25a3d4, #ff3abd, #25a3d4, #9737ff);
-    background-size: 200%;
+    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
