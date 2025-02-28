@@ -68,15 +68,17 @@ window.renderProjects = function (projects = projectData) {
     showProjectsBtn.innerHTML = "Show more"
     projectsToRender.forEach(project => {
         projectsGrid.innerHTML += `
-            <div class="project-card">
-                <div class="project-card-grid">
-                    <img class="project-image" src="${project.imageSrc}" alt="${project.altText}">
-                    <div class="project-info">
-                        <p class="project-title">${project.title}</p>
-                        <p class="project-description">${project.description}</p>
+            <a href="${project.url}">
+                <div class="project-card">
+                    <div class="project-card-grid">
+                        <img class="project-image" src="${project.imageSrc}" alt="${project.altText}">
+                        <div class="project-info">
+                            <p class="project-title">${project.title}</p>
+                            <p class="project-description">${project.description}</p>
+                        </div>
                     </div>
                 </div>
-            </div>`;
+            </a>`;
     });
 
     currentIndex += projectRenderCount; // Move to the next batch
