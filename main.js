@@ -68,7 +68,7 @@ window.renderProjects = function (projects = projectData) {
     showProjectsBtn.innerHTML = "Show more"
     projectsToRender.forEach(project => {
         projectsGrid.innerHTML += `
-            <a href="${project.url}">
+            <a href="${project.url}" target="_blank">
                 <div class="project-card">
                     <div class="project-card-grid">
                         <img class="project-image" src="${project.imageSrc}" alt="${project.altText}">
@@ -78,7 +78,8 @@ window.renderProjects = function (projects = projectData) {
                         </div>
                     </div>
                 </div>
-            </a>`;
+            </a>
+        `;
     });
 
     currentIndex += projectRenderCount; // Move to the next batch
