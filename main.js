@@ -68,7 +68,7 @@ window.renderProjects = function (projects = projectData) {
     showProjectsBtn.innerHTML = "Show more"
     projectsToRender.forEach(project => {
         projectsGrid.innerHTML += `
-            <a href="${project.url}" target="_blank">
+            <a class="project-link" href="${project.url}" target="_blank">
                 <div class="project-card">
                     <div class="project-card-grid">
                         <img class="project-image" src="${project.imageSrc}" alt="${project.altText}">

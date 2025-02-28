@@ -454,7 +454,10 @@ footer {
     transition: transform 0.3s, box-shadow 0.3s;
     /* Smooth transitions */
 }
-
+.project-link{
+    text-decoration: none;
+    color: inherit;
+}
 .project-card:hover {
     transform: translatey(-5px);
     /* Lift effect on hover */
