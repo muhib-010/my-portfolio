@@ -87,7 +87,7 @@ function move(elem) {
         setTimeout(() => {
             solo(cross, crossArr, circleArr);
             canMove(true)
-        }, 700)
+        }, 500)
     }
     renderBoard(crossArr, circleArr);
 }
