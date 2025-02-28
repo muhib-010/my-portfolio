@@ -72,17 +72,23 @@ function move(elem) {
     else if(checkDraw(crossArr, circleArr)){
         squares.forEach(square => square.removeAttribute("onclick"));
         dialog.innerHTML = `<h1 class="title">Game Over</h1>
-                            <div class="winner-div">
-                                <div class="winner-icon"></div>
-                                <h2 class="title"> It's a draw</h2>
-                            </div>
+                                <div class="winner-div">
+                                    <div class="winner-icon"></div>
+                                    <h2 class="title"> It's a draw</h2>
+                                </div>
                             <button id="restart" onclick="restart()">Play again!</button>`
         dialog.style.display = "flex";
         return;
     }
     cross = isSolo? cross: !cross; // Switch turns
     elem.classList.add("no-hover"); // Disable hover for the clicked cell
-    isSolo? solo(cross, crossArr, circleArr): null
+    isSolo? canMove(false) : canMove(true)
+    if(isSolo){
+        setTimeout(() => {
+            solo(cross, crossArr, circleArr);
+            canMove(true)
+        }, 700)
+    }
     renderBoard(crossArr, circleArr);
 }
 
@@ -141,9 +147,7 @@ function solo(cross, crossArr, circleArr){
             winnerIcon = document.querySelector(".winner-icon")
             winnerIcon.style.backgroundImage = "url(./circle.svg)"
             dialog.style.display = "flex";
-            return;
         }
-        return
     }
     else{
         crossArr.push(firstMove) 
@@ -159,8 +163,8 @@ function solo(cross, crossArr, circleArr){
             winnerIcon = document.querySelector(".winner-icon")
             winnerIcon.style.backgroundImage = "url(./cross.svg)";
             dialog.style.display = "flex";
-            return;
         }   
+        canMove(true)
         return
     }
 }

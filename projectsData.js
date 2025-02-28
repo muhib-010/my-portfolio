@@ -11,20 +11,20 @@ export const projects = [
     altText: "Project 2",
     title: "Portfolio Website",
     description: "A personal portfolio showcasing my web development skills, projects, and contact information with interactive animations.",
-    url: "https://example.com/portfolio"
+    url: ""
   },
   {
     imageSrc: "./assets/UnderConstruction.jpeg",
     altText: "Project 3",
     title: "To-do list",
     description: "A simple to-do list made with React for managing your day to day tasks.",
-    url: "https://example.com/todo-list"
+    url: ""
   },
   {
     imageSrc: "./assets/UnderConstruction.jpeg",
     altText: "Project 4",
     title: "Weather App",
     description: "Stay updated with real-time weather forecasts and conditions using this sleek, user-friendly app.",
-    url: "https://example.com/weather-app"
+    url: ""
   }
 ];
