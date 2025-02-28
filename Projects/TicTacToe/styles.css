@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    padding: 70px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: clamp(10px, 2vw, 20px);
+}
+.dropdown {
+    position: relative;
+    width: 250px;
+}
+
+.dropdown-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffffff, #e3eaf5);
+    border: 1px solid #d1d9e6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dropdown-button:hover {
+    background: linear-gradient(135deg, #f0f4fa, #d7e2f0);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #d1d9e6;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    z-index: 10;
+}
+
+.dropdown.open .dropdown-content {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.dropdown-option {
+    padding: 12px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-option:hover {
+    background: linear-gradient(135deg, #eaf2fb, #cfdced);
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #4b5563;
+    transition: transform 0.3s ease;
+}
+
+.dropdown.open .arrow {
+    transform: rotate(180deg);
+}
+.square {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    transition: background-color 70ms ease;
+}
+
+.square:hover {
+    background-color: lightblue;
+}
+
+.canvas {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: clamp(20px, 5vw, 50px);
+    height: min(90vw, 80%);
+    width: auto;
+    aspect-ratio: 1 / 1;
+    /* Prevents stretching while keeping responsiveness */
+}
+
+.title {
+    display: inline-block;
+    margin: 20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(1.7rem, 5vw, 3rem);
+    /* 🔥 Increased min and max font size for better visibility */
+    color: #1a1a1a;
+}
+
+.vert {
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+}
+
+.horizon {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.no-hover {
+    background-color: transparent;
+}
+
+.no-hover:hover {
+    background-color: transparent;
+}
+
+#dialog {
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.637);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: clamp(10px, 5%, 20px) clamp(8px, 2%, 16px);
+    width: clamp(260px, 80vw, 320px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: rgba(173, 216, 230, 0.719);
+    backdrop-filter: blur(4px);
+}
+
+.winner-icon {
+    height: clamp(24px, 5vw, 30px);
+    width: clamp(24px, 5vw, 30px);
+    margin-right: clamp(6px, 2vw, 10px);
+    background-image: none;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+}
+
+.winner-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#restart{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+}
+
+/* ✅ Media Query for smaller screens */
+@media (max-width: 510px) {
+    .canvas {
+        width: 90%;
+        aspect-ratio: 1 / 1;
+    }
+
+    #dialog {
+        width: 90%;
+    }
+
+    .title {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        /* 🛠️ Increased font size for small screens */
+    }
+
+    .winner-icon {
+        height: clamp(20px, 6vw, 28px);
+        width: clamp(20px, 6vw, 28px);
+    }
+}

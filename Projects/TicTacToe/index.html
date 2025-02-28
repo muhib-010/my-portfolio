@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="title">Gaming TicTacToe</h1>
+    <dialog id="dialog">
+      <h1 class="title">Game Over</h1>
+      <div class="winner-div">
+        <div class="winner-icon"></div>
+        <h2 class="title">Won</h2>
+      </div>
+      <button id="restart" onclick="restart()">Play again!</button>
+    </dialog>
+    <div class="dropdown" id="modeDropdown">
+      <div class="dropdown-button" onclick="toggleDropdown()">
+        <span id="selectedMode">Select Game Mode</span>
+        <div class="arrow"></div>
+      </div>
+      <div class="dropdown-content">
+        <div class="dropdown-option" onclick="selectMode('Solo')">Solo</div>
+        <div class="dropdown-option" onclick="selectMode('Duel')">Duel</div>
+      </div>
+    </div>
+    <div class="canvas">
+      <div class="square one" id="0" onclick="move(this)"></div>
+      <div class="square vert two" id="1" onclick="move(this)"></div>
+      <div class="square three" id="2" onclick="move(this)"></div>
+      <div class="square horizon four" id="3" onclick="move(this)"></div>
+      <div class="square horizon vert five" id="4" onclick="move(this)"></div>
+      <div class="square horizon six" id="5" onclick="move(this)"></div>
+      <div class="square seven" id="6" onclick="move(this)"></div>
+      <div class="square vert eight" id="7" onclick="move(this)"></div>
+      <div class="square nine" id="8" onclick="move(this)"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
