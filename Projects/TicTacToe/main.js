@@ -115,7 +115,14 @@ function selectMode(mode) {
     mode === "Solo"? isSolo = true : isSolo =  false;
     dropdown.classList.remove('open');
     restart()
-    isSolo? alert("The AI of solo mode is crazy and you cannot win in this mode."):null
+    if(isSolo){
+        alert("The AI of solo mode is crazy and you cannot win in this mode.")
+        document.querySelector(".body").style.animation="duelToSolo  0.5s ease-in-out forwards"
+    }
+    else{
+        alert("This is duel mode")
+        document.querySelector(".body").style.animation="soloToDuel  0.5s ease-in-out forwards"
+    }
 }
 
 window.addEventListener('click', (e) => {
