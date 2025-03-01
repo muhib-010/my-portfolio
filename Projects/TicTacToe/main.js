@@ -14,7 +14,7 @@ const winningCombinations = [
     [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
     [0, 4, 8], [2, 4, 6]             // Diagonals
 ];
-selectMode("Solo");
+selectMode("Duel")
 canMove(true)
 
 while(moveCount < 9){
@@ -115,6 +115,7 @@ function selectMode(mode) {
     mode === "Solo"? isSolo = true : isSolo =  false;
     dropdown.classList.remove('open');
     restart()
+    isSolo? alert("The AI of solo mode is crazy and you cannot win in this mode."):null
 }
 
 window.addEventListener('click', (e) => {
@@ -126,45 +127,79 @@ function canMove(canMove){
     canMove? squares.forEach(square => square.setAttribute("onclick", "move(this)")) :squares.forEach(square => square.removeAttribute("onclick"))
     return
 }
-function solo(cross, crossArr, circleArr){
-    // canMove(false);
-    let firstMove;
-    do {
-        firstMove = Math.floor(Math.random() * 8) + 1; // Generates a number from 1 to 8
-    } while (crossArr.includes(firstMove) || circleArr.includes(firstMove));
-    console.log(firstMove)
-    if (cross){
-        circleArr.push(firstMove)
-        renderBoard(crossArr, circleArr);
-        if (checkWin(circleArr)) {
-            squares.forEach(square => square.removeAttribute("onclick"));
-            dialog.innerHTML = `<h1 class="title">Game Over</h1>
-                                <div class="winner-div">
-                                    <div class="winner-icon"></div>
-                                    <h2 class="title"> Won</h2>
-                                </div>
-                                <button id="restart" onclick="restart()">Play again!</button>`
-            winnerIcon = document.querySelector(".winner-icon")
-            winnerIcon.style.backgroundImage = "url(./circle.svg)"
-            dialog.style.display = "flex";
+function solo(cross, crossArr, circleArr) {
+    let move;
+    let occupied = [...crossArr, ...circleArr]; // All occupied squares
+
+    // 1️⃣ Win if possible
+    for (let combo of winningCombinations) {
+        let count = combo.filter((i) => (cross ? circleArr : crossArr).includes(i)).length;
+        let empty = combo.find((i) => !occupied.includes(i));
+
+        if (count === 2 && empty !== undefined) { // If AI can win
+            move = empty;
+            break;
         }
     }
-    else{
-        crossArr.push(firstMove) 
+
+    // 2️⃣ Block opponent if they can win
+    if (move === undefined) {
+        for (let combo of winningCombinations) {
+            let count = combo.filter((i) => (cross ? crossArr : circleArr).includes(i)).length;
+            let empty = combo.find((i) => !occupied.includes(i));
+
+            if (count === 2 && empty !== undefined) { // If opponent can win
+                move = empty;
+                break;
+            }
+        }
+    }
+
+    // 3️⃣ Pick center if available
+    if (move === undefined && !occupied.includes(4)) {
+        move = 4;
+    }
+
+    // 4️⃣ Pick a random corner if available
+    if (move === undefined) {
+        let corners = [0, 2, 6, 8].filter(i => !occupied.includes(i));
+        if (corners.length) {
+            move = corners[Math.floor(Math.random() * corners.length)];
+        }
+    }
+
+    // 5️⃣ Pick any remaining empty space
+    if (move === undefined) {
+        let available = [...Array(9).keys()].filter(i => !occupied.includes(i));
+        move = available[Math.floor(Math.random() * available.length)];
+    }
+
+    // Execute move
+    if (cross) {
+        circleArr.push(move);
+        renderBoard(crossArr, circleArr);
+        if (checkWin(circleArr)) {
+            showGameOver("circle.svg");
+        }
+    } else {
+        crossArr.push(move);
         renderBoard(crossArr, circleArr);
         if (checkWin(crossArr)) {
-            squares.forEach(square => square.removeAttribute("onclick"));
-            dialog.innerHTML = `<h1 class="title">Game Over</h1>
-                                <div class="winner-div">
-                                    <div class="winner-icon"></div>
-                                    <h2 class="title"> Won</h2>
-                                </div>
-                                <button id="restart" onclick="restart()">Play again!</button>`
-            winnerIcon = document.querySelector(".winner-icon")
-            winnerIcon.style.backgroundImage = "url(./cross.svg)";
-            dialog.style.display = "flex";
-        }   
-        canMove(true)
-        return
+            showGameOver("cross.svg");
+        }
     }
+}
+
+// Helper function for game over screen
+function showGameOver(winnerImage) {
+    squares.forEach(square => square.removeAttribute("onclick"));
+    dialog.innerHTML = `<h1 class="title">Game Over</h1>
+                        <div class="winner-div">
+                            <div class="winner-icon"></div>
+                            <h2 class="title"> Won</h2>
+                        </div>
+                        <button id="restart" onclick="restart()">Play again!</button>`;
+    winnerIcon = document.querySelector(".winner-icon");
+    winnerIcon.style.backgroundImage = `url(./${winnerImage})`;
+    dialog.style.display = "flex";
 }
