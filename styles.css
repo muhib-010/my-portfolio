@@ -168,7 +168,7 @@ nav {
     padding: 0;
     margin: 0;
     position: fixed;
-    top: 4px;
+    top: 0px;
     left: 2%;
     width: 96%;
     z-index: 20;
