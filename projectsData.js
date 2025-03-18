@@ -8,7 +8,7 @@ export const projects = [
   },
   {
     imageSrc: "./assets/UnderConstruction.jpeg",
-    altText: "Project 2",
+    altText: "Cary Math Game",
     title: "Portfolio Website",
     description: "A personal portfolio showcasing my web development skills, projects, and contact information with interactive animations.",
     url: ""
