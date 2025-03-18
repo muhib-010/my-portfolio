@@ -1,10 +1,11 @@
 {
-  "homepage": "https://muhib-010.github.io/my-portfolio/Projects/crazy-math-game/",
+  "homepage": "https://muhib-010.github.io/my-portfolio/projects/crazy-math-game/",
   "name": "crazy-math-game",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite",
     "dev": "vite",
     "predeploy": "npm run build",
     "build": "vite build",
