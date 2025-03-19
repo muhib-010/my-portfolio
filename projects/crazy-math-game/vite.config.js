@@ -5,7 +5,8 @@ import fs from 'fs/promises';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  base: "./dist",
+  plugins: [react(), tailwindcss(),],
   esbuild: {
     loader: 'jsx',
   },
