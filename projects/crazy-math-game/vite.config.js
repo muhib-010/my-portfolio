@@ -1,7 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from '@tailwindcss/vite';
+import fs from 'fs/promises';
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./", // Ensures relative paths work in the build
-  plugins: [react()],
-});
+  plugins: [react(), tailwindcss()],
+  esbuild: {
+    loader: 'jsx',
+  },
+  resolve: {
+    alias: {
+      './runtimeConfig': './runtimeConfig.browser',
+    },
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
+})
