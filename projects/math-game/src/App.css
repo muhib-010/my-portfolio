@@ -1,14 +1,12 @@
-
 body {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center; /* or flex-start if you want elements aligned to the top */
     background-image: url(./assets/background.jpg);
     background-repeat: no-repeat;
     background-size: cover; /* Ensures the image fully covers the screen */
     background-position: center; /* Centers the background */
-    min-height: 100vh; /* Makes sure the body covers the full viewport height */
+    height: 100vh;
 }
 .tick, .cross{
     background-image: url("./assets/tick.svg");
