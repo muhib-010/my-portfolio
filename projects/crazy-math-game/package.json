@@ -9,6 +9,7 @@
     "dev": "vite",
     "predeploy": "npm run build",
     "build": "vite build",
+    "postbuild": "echo > docs/.nojekyll",
     "lint": "eslint .",
     "preview": "vite preview",
     "tailwind:init": "tailwindcss init -p",
