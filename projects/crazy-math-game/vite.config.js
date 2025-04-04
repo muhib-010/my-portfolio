@@ -6,7 +6,7 @@ export default defineConfig({
   base: '/my-portfolio/projects/crazy-math-game/',  // Ensure relative paths for GitHub Pages
   plugins: [react(), tailwindcss()],
   build: {
-    outDir: 'root',  // Change the output folder from 'dist' to 'root'
+    outDir: 'docs',  // Change the output folder from 'dist' to 'docs'
   }
 });
 
